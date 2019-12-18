@@ -19,8 +19,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="E:\mavenRepo" />
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-        <option name="userSettingsFile" value="C:\Users\Administrator\.m2\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -28,8 +26,8 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.38390803" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunDashboard">
@@ -44,7 +42,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Spring Boot.Application (2)">
+    <configuration name="Application (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jege.spring.boot.Application" />
+      <module name="spring-boot-data-jpa-easyui-datagrid" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jege.spring.boot.Application" />
       <module name="spring-boot-data-jpa-easyui-datagrid-i18n" />
@@ -59,6 +64,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-controller-advice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jege.spring.boot.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-data-jpa-easyui-datagrid-cache" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jege.spring.boot.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="spring-boot-data-jpa-easyui-datagrid-i18n" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jege.spring.boot.Application" />
@@ -68,6 +87,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.Application (2)" />
+        <item itemvalue="Application.Application (1)" />
+        <item itemvalue="Spring Boot.Application (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Application" />
       </list>
@@ -80,7 +102,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576676462334</updated>
-      <workItem from="1576676464212" duration="2138000" />
+      <workItem from="1576676464212" duration="3341000" />
+      <workItem from="1576680891767" duration="2909000" />
     </task>
     <servers />
   </component>
