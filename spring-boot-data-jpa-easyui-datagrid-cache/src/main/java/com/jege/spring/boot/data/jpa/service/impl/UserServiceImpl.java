@@ -26,33 +26,33 @@ import com.jege.spring.boot.data.jpa.service.UserService;
 @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 @CacheConfig(cacheNames = "user")
 public class UserServiceImpl implements UserService {
-  @Autowired
-  UserRepository userRepository;
+    @Autowired
+    UserRepository userRepository;
 
-  @Override
-  @Cacheable()
-  public Page<User> findAll(Pageable pageable) {
-    return userRepository.findAll(pageable);
-  }
+    @Override
+    @Cacheable()
+    public Page<User> findAll(Pageable pageable) {
+        return userRepository.findAll(pageable);
+    }
 
-  @Override
-  @Cacheable()
-  public Page<User> findAll(Specification<User> specification, Pageable pageable) {
-    return userRepository.findAll(specification, pageable);
-  }
+    @Override
+    @Cacheable()
+    public Page<User> findAll(Specification<User> specification, Pageable pageable) {
+        return userRepository.findAll(specification, pageable);
+    }
 
-  @Override
-  @Transactional
-  @CacheEvict(allEntries=true)
-  public void save(User user) {
-    userRepository.save(user);
-  }
+    @Override
+    @Transactional
+    @CacheEvict(allEntries = true)
+    public void save(User user) {
+        userRepository.save(user);
+    }
 
-  @Override
-  @Transactional
-  @CacheEvict(allEntries=true)
-  public void delete(Long id) {
-    userRepository.delete(id);
-  }
+    @Override
+    @Transactional
+    @CacheEvict(allEntries = true)
+    public void delete(Long id) {
+        userRepository.delete(id);
+    }
 
 }

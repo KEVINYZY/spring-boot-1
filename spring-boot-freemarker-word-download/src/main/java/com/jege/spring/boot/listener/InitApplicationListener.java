@@ -16,19 +16,19 @@ import com.jege.spring.boot.data.jpa.repository.UserRepository;
 @Component
 public class InitApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
 
-  @Override
-  public void onApplicationEvent(ContextRefreshedEvent event) {
-    ApplicationContext context = event.getApplicationContext();
-    UserRepository userRepository = context.getBean("userRepository", UserRepository.class);
-    for (int i = 1; i < 6; i++) {
-      User user = new User("user" + i, 25 + i);
-      if (i % 2 == 0) {
-	user.setHeadPortrait("/static/image/wx.png");
-      } else {
-	user.setHeadPortrait("/static/image/zfb.png");
-      }
-      userRepository.save(user);
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+        ApplicationContext context = event.getApplicationContext();
+        UserRepository userRepository = context.getBean("userRepository", UserRepository.class);
+        for (int i = 1; i < 6; i++) {
+            User user = new User("user" + i, 25 + i);
+            if (i % 2 == 0) {
+                user.setHeadPortrait("/static/image/wx.png");
+            } else {
+                user.setHeadPortrait("/static/image/zfb.png");
+            }
+            userRepository.save(user);
+        }
     }
-  }
 
 }

@@ -34,58 +34,58 @@ import com.jege.spring.boot.json.AjaxResult;
 @RequestMapping("/user")
 public class UserController extends BaseController {
 
-  @Autowired
-  private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-  // 显示用户列表页面
-  @RequestMapping("/list")
-  public String list() {
-    return "user";
-  }
+    // 显示用户列表页面
+    @RequestMapping("/list")
+    public String list() {
+        return "user";
+    }
 
-  // 从user.jsp列表页面由easyui-datagrid发出ajax请求获取json数据
-  @RequestMapping("/json")
-  @ResponseBody
-  public Map<String, Object> json(@RequestParam(name = "page", defaultValue = "1") int page,
-      @RequestParam(name = "rows", defaultValue = "10") int rows, final String q, HttpServletRequest request) {
-    // 按照id降序
-    Sort sort = new Sort(Sort.Direction.DESC, "id");
-    // 封装分页查询条件
-    Pageable pageable = new PageRequest(page - 1, rows, sort);
-    // 拼接查询条件
-    Specification<User> specification = new Specification<User>() {
-      @Override
-      public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-	List<Predicate> list = new ArrayList<Predicate>();
-	if (!StringUtils.isEmpty(q)) {
-	  list.add(cb.like(root.get("name").as(String.class), "%" + q + "%"));
-	}
-	if (request.getLocale().toString().contains("en")) {
-	  list.add(cb.like(root.get("locale").as(String.class), "%en%"));
-	} else {
-	  list.add(cb.like(root.get("locale").as(String.class), "%zh%"));
-	}
-	Predicate[] p = new Predicate[list.size()];
-	return cb.and(list.toArray(p));
-      }
-    };
-    return findEasyUIData(userRepository.findAll(specification, pageable));
-  }
+    // 从user.jsp列表页面由easyui-datagrid发出ajax请求获取json数据
+    @RequestMapping("/json")
+    @ResponseBody
+    public Map<String, Object> json(@RequestParam(name = "page", defaultValue = "1") int page,
+                                    @RequestParam(name = "rows", defaultValue = "10") int rows, final String q, HttpServletRequest request) {
+        // 按照id降序
+        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        // 封装分页查询条件
+        Pageable pageable = new PageRequest(page - 1, rows, sort);
+        // 拼接查询条件
+        Specification<User> specification = new Specification<User>() {
+            @Override
+            public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> list = new ArrayList<Predicate>();
+                if (!StringUtils.isEmpty(q)) {
+                    list.add(cb.like(root.get("name").as(String.class), "%" + q + "%"));
+                }
+                if (request.getLocale().toString().contains("en")) {
+                    list.add(cb.like(root.get("locale").as(String.class), "%en%"));
+                } else {
+                    list.add(cb.like(root.get("locale").as(String.class), "%zh%"));
+                }
+                Predicate[] p = new Predicate[list.size()];
+                return cb.and(list.toArray(p));
+            }
+        };
+        return findEasyUIData(userRepository.findAll(specification, pageable));
+    }
 
-  // 处理保存
-  @RequestMapping("/save")
-  @ResponseBody
-  public AjaxResult save(User user) {
-    userRepository.save(user);
-    return new AjaxResult().success();
-  }
+    // 处理保存
+    @RequestMapping("/save")
+    @ResponseBody
+    public AjaxResult save(User user) {
+        userRepository.save(user);
+        return new AjaxResult().success();
+    }
 
-  // 处理删除
-  @RequestMapping("/delete")
-  @ResponseBody
-  public AjaxResult delete(Long id) {
-    int a = 1 / 0;
-    userRepository.delete(id);
-    return new AjaxResult().success();
-  }
+    // 处理删除
+    @RequestMapping("/delete")
+    @ResponseBody
+    public AjaxResult delete(Long id) {
+        int a = 1 / 0;
+        userRepository.delete(id);
+        return new AjaxResult().success();
+    }
 }

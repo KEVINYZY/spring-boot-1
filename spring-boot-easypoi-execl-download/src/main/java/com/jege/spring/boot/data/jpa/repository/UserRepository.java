@@ -14,6 +14,6 @@ import com.jege.spring.boot.data.jpa.entity.User;
  */
 public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
 
-  List<User> findByNameLike(String name);
+    List<User> findByNameLike(String name);
 
 }

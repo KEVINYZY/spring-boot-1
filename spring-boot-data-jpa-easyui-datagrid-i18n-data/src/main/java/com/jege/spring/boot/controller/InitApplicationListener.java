@@ -16,21 +16,21 @@ import com.jege.spring.boot.data.jpa.repository.UserRepository;
 @Component
 public class InitApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
 
-  @Override
-  public void onApplicationEvent(ContextRefreshedEvent event) {
-    ApplicationContext context = event.getApplicationContext();
-    UserRepository userRepository = context.getBean("userRepository", UserRepository.class);
-    User user;
-    for (int i = 1; i < 21; i++) {
-      if (i % 2 == 0) {
-	user = new User("je哥" + i, 25 + i);
-	user.setLocale("zh");
-      } else {
-	user = new User("je-ge" + i, 25 + i);
-	user.setLocale("en");
-      }
-      userRepository.save(user);
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+        ApplicationContext context = event.getApplicationContext();
+        UserRepository userRepository = context.getBean("userRepository", UserRepository.class);
+        User user;
+        for (int i = 1; i < 21; i++) {
+            if (i % 2 == 0) {
+                user = new User("je哥" + i, 25 + i);
+                user.setLocale("zh");
+            } else {
+                user = new User("je-ge" + i, 25 + i);
+                user.setLocale("en");
+            }
+            userRepository.save(user);
+        }
     }
-  }
 
 }

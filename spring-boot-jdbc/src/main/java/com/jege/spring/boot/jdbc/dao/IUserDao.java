@@ -11,16 +11,16 @@ import com.jege.spring.boot.jdbc.entity.User;
  */
 public interface IUserDao {
 
-  void dropTable();
+    void dropTable();
 
-  void createTable();
+    void createTable();
 
-  void save(User user);
+    void save(User user);
 
-  List<User> findAll();
+    List<User> findAll();
 
-  void deleteAll();
+    void deleteAll();
 
-  List<User> findByNameLike(String name);
+    List<User> findByNameLike(String name);
 
 }

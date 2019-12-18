@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SessionController {
 
-  @RequestMapping("/session")
-  public String hello1(HttpSession session) {
-    return session.getId();
-  }
+    @RequestMapping("/session")
+    public String hello1(HttpSession session) {
+        return session.getId();
+    }
 }

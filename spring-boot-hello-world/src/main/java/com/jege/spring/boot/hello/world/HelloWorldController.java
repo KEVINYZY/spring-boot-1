@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloWorldController {
 
-  @RequestMapping("/hello1")
-  public String hello1() {
-    return "Hello World";
-  }
+    @RequestMapping("/hello1")
+    public String hello1() {
+        return "Hello World";
+    }
 
-  @RequestMapping("/hello2")
-  public List<String> hello2() {
-    return Arrays.asList(new String[] { "A", "B", "C" });
-  }
+    @RequestMapping("/hello2")
+    public List<String> hello2() {
+        return Arrays.asList(new String[]{"A", "B", "C"});
+    }
 }

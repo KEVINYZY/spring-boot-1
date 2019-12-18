@@ -17,31 +17,31 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class HttpsConfig {
 
-  @Bean
-  public EmbeddedServletContainerFactory servletContainer() {
-    TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {// 1
-      protected void postProcessContext(Context context) {
-	SecurityConstraint securityConstraint = new SecurityConstraint();
-	securityConstraint.setUserConstraint("CONFIDENTIAL");
-	SecurityCollection collection = new SecurityCollection();
-	collection.addPattern("/*");
-	securityConstraint.addCollection(collection);
-	context.addConstraint(securityConstraint);
-      }
-    };
-    tomcat.addAdditionalTomcatConnectors(httpConnector());
-    return tomcat;
-  }
+    @Bean
+    public EmbeddedServletContainerFactory servletContainer() {
+        TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {// 1
+            protected void postProcessContext(Context context) {
+                SecurityConstraint securityConstraint = new SecurityConstraint();
+                securityConstraint.setUserConstraint("CONFIDENTIAL");
+                SecurityCollection collection = new SecurityCollection();
+                collection.addPattern("/*");
+                securityConstraint.addCollection(collection);
+                context.addConstraint(securityConstraint);
+            }
+        };
+        tomcat.addAdditionalTomcatConnectors(httpConnector());
+        return tomcat;
+    }
 
-  @Bean
-  public Connector httpConnector() {
-    Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
-    connector.setScheme("http");
-    // 表示用8080端口来供http访问
-    connector.setPort(8080);
-    connector.setSecure(false);
-    // 自动重定向到8443端口
-    connector.setRedirectPort(8443);
-    return connector;
-  }
+    @Bean
+    public Connector httpConnector() {
+        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+        connector.setScheme("http");
+        // 表示用8080端口来供http访问
+        connector.setPort(8080);
+        connector.setSecure(false);
+        // 自动重定向到8443端口
+        connector.setRedirectPort(8443);
+        return connector;
+    }
 }

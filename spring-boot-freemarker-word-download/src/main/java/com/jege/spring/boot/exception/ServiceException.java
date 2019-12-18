@@ -6,7 +6,7 @@ package com.jege.spring.boot.exception;
  * @description:自定义异常类
  */
 public class ServiceException extends RuntimeException {
-  public ServiceException(String msg) {
-    super(msg);
-  }
+    public ServiceException(String msg) {
+        super(msg);
+    }
 }

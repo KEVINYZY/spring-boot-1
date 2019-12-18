@@ -17,46 +17,46 @@ import org.jeecgframework.poi.excel.annotation.ExcelTarget;
 @Table(name = "t_user")
 @ExcelTarget("user")
 public class User {
-  @Id
-  @GeneratedValue
-  @Excel(name = "编号", orderNum = "1", mergeVertical = true, isImportField = "id")
-  private Long id;
-  @Excel(name = "姓名", orderNum = "2", mergeVertical = true, isImportField = "name")
-  private String name;
-  @Excel(name = "年龄", orderNum = "3", mergeVertical = true, isImportField = "age")
-  private Integer age;
+    @Id
+    @GeneratedValue
+    @Excel(name = "编号", orderNum = "1", mergeVertical = true, isImportField = "id")
+    private Long id;
+    @Excel(name = "姓名", orderNum = "2", mergeVertical = true, isImportField = "name")
+    private String name;
+    @Excel(name = "年龄", orderNum = "3", mergeVertical = true, isImportField = "age")
+    private Integer age;
 
-  public User() {
+    public User() {
 
-  }
+    }
 
-  public User(String name, Integer age) {
-    this.name = name;
-    this.age = age;
-  }
+    public User(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
 
-  public Long getId() {
-    return id;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public Integer getAge() {
-    return age;
-  }
+    public Integer getAge() {
+        return age;
+    }
 
-  public void setAge(Integer age) {
-    this.age = age;
-  }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
 }

@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/es/")
 public class UserController {
-  @Autowired
-  private UserService userService;
+    @Autowired
+    private UserService userService;
 
-  @RequestMapping("/list")
-  public Iterable<User> list() {
-    userService.save(new User("je_ge", 33));
-    return userService.findAll();
-  }
+    @RequestMapping("/list")
+    public Iterable<User> list() {
+        userService.save(new User("je_ge", 33));
+        return userService.findAll();
+    }
 }

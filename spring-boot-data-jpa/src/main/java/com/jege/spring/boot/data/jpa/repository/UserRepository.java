@@ -13,6 +13,6 @@ import com.jege.spring.boot.data.jpa.entity.User;
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 
-  List<User> findByNameLike(String name);
+    List<User> findByNameLike(String name);
 
 }

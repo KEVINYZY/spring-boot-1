@@ -45,89 +45,89 @@ import freemarker.template.Template;
 @RequestMapping("/user")
 public class UserController extends BaseController {
 
-  @Autowired
-  private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-  // 显示用户列表页面
-  @RequestMapping("/list")
-  public String list() {
-    return "user";
-  }
-
-  // 从user.jsp列表页面由easyui-datagrid发出ajax请求获取json数据
-  @RequestMapping("/json")
-  @ResponseBody
-  public Map<String, Object> json(@RequestParam(name = "page", defaultValue = "1") int page,
-      @RequestParam(name = "rows", defaultValue = "10") int rows, final String q) {
-    // 按照id降序
-    Sort sort = new Sort(Sort.Direction.DESC, "id");
-    // 封装分页查询条件
-    Pageable pageable = new PageRequest(page - 1, rows, sort);
-    if (!StringUtils.isEmpty(q)) {
-      // 拼接查询条件
-      Specification<User> specification = new Specification<User>() {
-	@Override
-	public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-	  List<Predicate> list = new ArrayList<Predicate>();
-	  list.add(cb.like(root.get("name").as(String.class), "%" + q + "%"));
-	  Predicate[] p = new Predicate[list.size()];
-	  return cb.and(list.toArray(p));
-
-	}
-      };
-      return findEasyUIData(userRepository.findAll(specification, pageable));
-    } else {
-      return findEasyUIData(userRepository.findAll(pageable));
+    // 显示用户列表页面
+    @RequestMapping("/list")
+    public String list() {
+        return "user";
     }
 
-  }
+    // 从user.jsp列表页面由easyui-datagrid发出ajax请求获取json数据
+    @RequestMapping("/json")
+    @ResponseBody
+    public Map<String, Object> json(@RequestParam(name = "page", defaultValue = "1") int page,
+                                    @RequestParam(name = "rows", defaultValue = "10") int rows, final String q) {
+        // 按照id降序
+        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        // 封装分页查询条件
+        Pageable pageable = new PageRequest(page - 1, rows, sort);
+        if (!StringUtils.isEmpty(q)) {
+            // 拼接查询条件
+            Specification<User> specification = new Specification<User>() {
+                @Override
+                public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                    List<Predicate> list = new ArrayList<Predicate>();
+                    list.add(cb.like(root.get("name").as(String.class), "%" + q + "%"));
+                    Predicate[] p = new Predicate[list.size()];
+                    return cb.and(list.toArray(p));
 
-  // 处理保存
-  @RequestMapping("/save")
-  @ResponseBody
-  public AjaxResult save(User user) {
-    userRepository.save(user);
-    return new AjaxResult().success();
-  }
+                }
+            };
+            return findEasyUIData(userRepository.findAll(specification, pageable));
+        } else {
+            return findEasyUIData(userRepository.findAll(pageable));
+        }
 
-  // 处理删除
-  @RequestMapping("/delete")
-  @ResponseBody
-  public AjaxResult delete(Long id) {
-    // int a = 1 / 0;
-    userRepository.delete(id);
-    return new AjaxResult().success();
-  }
-
-  @Autowired
-  private FreeMarkerConfigurer freeMarkerConfigurer;
-  private Base64 b64Encoder = new Base64();
-
-  // 处理下载word文档
-  @RequestMapping("/download")
-  public void download(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    // 告诉浏览器用什么软件可以打开此文件
-    response.setHeader("content-Type", "application/msword");
-    // 下载文件的默认名称
-    response.setHeader("Content-Disposition", "attachment;filename=xx.doc");
-    freeMarkerConfigurer.getConfiguration().setClassForTemplateLoading(getClass(), "/");
-    Template template = freeMarkerConfigurer.getConfiguration().getTemplate("userList.ftl");
-
-    String webapp = request.getServletContext().getRealPath("/");
-
-    List<User> list = userRepository.findAll();
-    for (int i = 0; i < list.size(); i++) {
-      User user = list.get(i);
-      File file = new File(webapp, user.getHeadPortrait());
-      FileInputStream fis = new FileInputStream(file);
-      byte[] imgData = new byte[fis.available()];
-      fis.read(imgData);
-      fis.close();
-      String headPortrait = b64Encoder.encodeAsString(imgData);
-      user.setHeadPortrait(headPortrait);
     }
-    Map<String, Object> root = new HashMap<String, Object>();
-    root.put("list", list);
-    template.process(root, new OutputStreamWriter(response.getOutputStream()));
-  }
+
+    // 处理保存
+    @RequestMapping("/save")
+    @ResponseBody
+    public AjaxResult save(User user) {
+        userRepository.save(user);
+        return new AjaxResult().success();
+    }
+
+    // 处理删除
+    @RequestMapping("/delete")
+    @ResponseBody
+    public AjaxResult delete(Long id) {
+        // int a = 1 / 0;
+        userRepository.delete(id);
+        return new AjaxResult().success();
+    }
+
+    @Autowired
+    private FreeMarkerConfigurer freeMarkerConfigurer;
+    private Base64 b64Encoder = new Base64();
+
+    // 处理下载word文档
+    @RequestMapping("/download")
+    public void download(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        // 告诉浏览器用什么软件可以打开此文件
+        response.setHeader("content-Type", "application/msword");
+        // 下载文件的默认名称
+        response.setHeader("Content-Disposition", "attachment;filename=xx.doc");
+        freeMarkerConfigurer.getConfiguration().setClassForTemplateLoading(getClass(), "/");
+        Template template = freeMarkerConfigurer.getConfiguration().getTemplate("userList.ftl");
+
+        String webapp = request.getServletContext().getRealPath("/");
+
+        List<User> list = userRepository.findAll();
+        for (int i = 0; i < list.size(); i++) {
+            User user = list.get(i);
+            File file = new File(webapp, user.getHeadPortrait());
+            FileInputStream fis = new FileInputStream(file);
+            byte[] imgData = new byte[fis.available()];
+            fis.read(imgData);
+            fis.close();
+            String headPortrait = b64Encoder.encodeAsString(imgData);
+            user.setHeadPortrait(headPortrait);
+        }
+        Map<String, Object> root = new HashMap<String, Object>();
+        root.put("list", list);
+        template.process(root, new OutputStreamWriter(response.getOutputStream()));
+    }
 }

@@ -17,12 +17,12 @@ import com.jege.spring.boot.es.UserService;
 @SpringBootTest(classes = Application.class)
 public class MainTest {
 
-  @Autowired
-  private UserService userService;
+    @Autowired
+    private UserService userService;
 
-  @Test
-  public void test() throws Exception {
-    System.out.println(userService.findAll());
-  }
-  
+    @Test
+    public void test() throws Exception {
+        System.out.println(userService.findAll());
+    }
+
 }

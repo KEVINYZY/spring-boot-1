@@ -12,11 +12,11 @@ import org.springframework.context.annotation.PropertySources;
  */
 
 @SpringBootApplication
-@PropertySources(value = { @PropertySource("classpath:messages.properties") })
+@PropertySources(value = {@PropertySource("classpath:messages.properties")})
 public class Application {
 
-  public static void main(String[] args) {
-    SpringApplication.run(Application.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
 }

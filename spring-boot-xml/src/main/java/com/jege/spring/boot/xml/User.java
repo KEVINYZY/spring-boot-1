@@ -11,34 +11,34 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
  */
 @JacksonXmlRootElement(localName = "user")
 public class User {
-  private Long id;
-  @JacksonXmlCData
-  @JacksonXmlProperty(localName = "Content")
-  private String content;
+    private Long id;
+    @JacksonXmlCData
+    @JacksonXmlProperty(localName = "Content")
+    private String content;
 
-  public User() {
+    public User() {
 
-  }
+    }
 
-  public User(Long id, String content) {
-    this.id = id;
-    this.content = content;
-  }
+    public User(Long id, String content) {
+        this.id = id;
+        this.content = content;
+    }
 
-  public Long getId() {
-    return id;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public String getContent() {
-    return content;
-  }
+    public String getContent() {
+        return content;
+    }
 
-  public void setContent(String content) {
-    this.content = content;
-  }
+    public void setContent(String content) {
+        this.content = content;
+    }
 
 }

@@ -14,15 +14,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class ScheduledTask {
 
-  private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-  @Scheduled(fixedDelayString = "${jobs.fixedDelay}")
-  public void getTask1() {
-    System.out.println("任务1，当前时间：" + dateFormat.format(new Date()));
-  }
+    @Scheduled(fixedDelayString = "${jobs.fixedDelay}")
+    public void getTask1() {
+        System.out.println("任务1，当前时间：" + dateFormat.format(new Date()));
+    }
 
-  @Scheduled(cron = "${jobs.cron}")
-  public void getTask2() {
-    System.out.println("任务2，当前时间：" + dateFormat.format(new Date()));
-  }
+    @Scheduled(cron = "${jobs.cron}")
+    public void getTask2() {
+        System.out.println("任务2，当前时间：" + dateFormat.format(new Date()));
+    }
 }

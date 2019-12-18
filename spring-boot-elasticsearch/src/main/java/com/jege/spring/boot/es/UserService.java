@@ -6,7 +6,7 @@ package com.jege.spring.boot.es;
  * @description:业务接口
  */
 public interface UserService {
-  void save(User user);
+    void save(User user);
 
-  Iterable<User> findAll();
+    Iterable<User> findAll();
 }

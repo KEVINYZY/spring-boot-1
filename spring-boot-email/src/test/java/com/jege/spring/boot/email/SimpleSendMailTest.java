@@ -18,22 +18,22 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SimpleSendMailTest {
 
-  @Autowired
-  private JavaMailSender javaMailSender;
+    @Autowired
+    private JavaMailSender javaMailSender;
 
-  @Value("${spring.mail.username}")
-  private String username;
+    @Value("${spring.mail.username}")
+    private String username;
 
-  @Test
-  public void testSendSimple() {
-    SimpleMailMessage message = new SimpleMailMessage();
-    // 在setFrom处必须填写自己的邮箱地址，否则会报
-    // Failed messages: com.sun.mail.smtp.SMTPSendFailedException:
-    // 501 mail from address must be same as authorization user错误
-    message.setFrom(username);
-    message.setTo("1272434821@qq.com");
-    message.setSubject("标题");
-    message.setText("内容部份");
-    javaMailSender.send(message);
-  }
+    @Test
+    public void testSendSimple() {
+        SimpleMailMessage message = new SimpleMailMessage();
+        // 在setFrom处必须填写自己的邮箱地址，否则会报
+        // Failed messages: com.sun.mail.smtp.SMTPSendFailedException:
+        // 501 mail from address must be same as authorization user错误
+        message.setFrom(username);
+        message.setTo("1272434821@qq.com");
+        message.setSubject("标题");
+        message.setText("内容部份");
+        javaMailSender.send(message);
+    }
 }

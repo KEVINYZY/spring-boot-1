@@ -13,12 +13,12 @@ import com.jege.spring.boot.data.jpa.entity.User;
  */
 public interface UserService {
 
-  Page<User> findAll(Pageable pageable);
+    Page<User> findAll(Pageable pageable);
 
-  Page<User> findAll(Specification<User> specification, Pageable pageable);
+    Page<User> findAll(Specification<User> specification, Pageable pageable);
 
-  void save(User user);
+    void save(User user);
 
-  void delete(Long id);
+    void delete(Long id);
 
 }

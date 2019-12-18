@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring-boot-data-jpa-easyui-datagrid" />
+        <module name="spring-boot-data-jpa-easyui-datagrid-i18n-data" />
+        <module name="spring-boot-easypoi-execl-download" />
+        <module name="spring-boot-data-jpa" />
+        <module name="spring-boot-distributed-session" />
+        <module name="spring-boot-data-jpa-easyui-datagrid-cache" />
+        <module name="spring-boot-jsoup" />
+        <module name="spring-boot-xml" />
+        <module name="spring-boot-jdbc" />
+        <module name="spring-boot-https" />
+        <module name="spring-boot-email" />
+        <module name="spring-boot-controller-advice" />
+        <module name="spring-boot-freemarker-word-download" />
+        <module name="spring-boot-data-jpa-easyui-edatagrid" />
+        <module name="spring-boot-elasticsearch" />
+        <module name="spring-boot-data-jpa-easyui-datagrid-i18n" />
+        <module name="spring-boot-hello-world" />
+        <module name="spring-boot-itext-pdf-download" />
+        <module name="spring-boot-dynamic-scheduled-task" />
+        <module name="spring-boot-devtools" />
+        <module name="spring-boot-data-jpa-easyui-validate" />
+        <module name="spring-boot-swagger" />
+        <module name="spring-boot-mybatis" />
+        <module name="spring-boot-scheduled-task" />
+        <module name="spring-boot-redis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-boot-controller-advice" target="1.5" />
+      <module name="spring-boot-data-jpa" target="1.5" />
+      <module name="spring-boot-data-jpa-easyui-datagrid" target="1.5" />
+      <module name="spring-boot-data-jpa-easyui-datagrid-cache" target="1.5" />
+      <module name="spring-boot-data-jpa-easyui-datagrid-i18n" target="1.8" />
+      <module name="spring-boot-data-jpa-easyui-datagrid-i18n-data" target="1.5" />
+      <module name="spring-boot-data-jpa-easyui-edatagrid" target="1.5" />
+      <module name="spring-boot-data-jpa-easyui-validate" target="1.5" />
+      <module name="spring-boot-devtools" target="1.5" />
+      <module name="spring-boot-distributed-session" target="1.5" />
+      <module name="spring-boot-dynamic-scheduled-task" target="1.5" />
+      <module name="spring-boot-easypoi-execl-download" target="1.5" />
+      <module name="spring-boot-elasticsearch" target="1.5" />
+      <module name="spring-boot-email" target="1.5" />
+      <module name="spring-boot-freemarker-word-download" target="1.5" />
+      <module name="spring-boot-hello-world" target="1.5" />
+      <module name="spring-boot-https" target="1.5" />
+      <module name="spring-boot-itext-pdf-download" target="1.5" />
+      <module name="spring-boot-jdbc" target="1.5" />
+      <module name="spring-boot-jsoup" target="1.5" />
+      <module name="spring-boot-mybatis" target="1.5" />
+      <module name="spring-boot-redis" target="1.5" />
+      <module name="spring-boot-scheduled-task" target="1.5" />
+      <module name="spring-boot-swagger" target="1.5" />
+      <module name="spring-boot-tutorial" target="1.5" />
+      <module name="spring-boot-xml" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

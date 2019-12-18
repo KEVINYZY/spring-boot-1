@@ -10,8 +10,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
  * @description:
  */
 public class RedisServiceTest {
-  @Autowired
-  public StringRedisTemplate template;
-  @Autowired
-  public RedisTemplate redisTemplate;
+    @Autowired
+    public StringRedisTemplate template;
+    @Autowired
+    public RedisTemplate redisTemplate;
 }

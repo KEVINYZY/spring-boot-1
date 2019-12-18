@@ -15,21 +15,21 @@ import com.jege.spring.boot.exception.ServiceException;
 @RestController
 public class AdviceController {
 
-  @RequestMapping("/hello1")
-  public String hello1() {
-    int i = 1 / 0;
-    return "hello";
-  }
+    @RequestMapping("/hello1")
+    public String hello1() {
+        int i = 1 / 0;
+        return "hello";
+    }
 
-  @RequestMapping("/hello2")
-  public String hello2(Long id) {
-    String string = null;
-    string.length();
-    return "hello";
-  }
+    @RequestMapping("/hello2")
+    public String hello2(Long id) {
+        String string = null;
+        string.length();
+        return "hello";
+    }
 
-  @RequestMapping("/hello3")
-  public List<String> hello3() {
-    throw new ServiceException("test");
-  }
+    @RequestMapping("/hello3")
+    public List<String> hello3() {
+        throw new ServiceException("test");
+    }
 }

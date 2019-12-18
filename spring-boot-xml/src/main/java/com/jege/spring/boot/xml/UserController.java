@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
 
-  // 输出xml
-  @RequestMapping(value = "/get", method = RequestMethod.GET, produces = { "application/xml" })
-  @ResponseBody
-  public User get() {
-    return new User(1L, "JE-GE");
-  }
+    // 输出xml
+    @RequestMapping(value = "/get", method = RequestMethod.GET, produces = {"application/xml"})
+    @ResponseBody
+    public User get() {
+        return new User(1L, "JE-GE");
+    }
 
-  // 提交xml
-  @RequestMapping(value = "/user", method = RequestMethod.POST, consumes = { "text/xml" }, produces = {
-      "application/xml" })
-  @ResponseBody
-  public User post(@RequestBody User user) {
-    return user;
-  }
+    // 提交xml
+    @RequestMapping(value = "/user", method = RequestMethod.POST, consumes = {"text/xml"}, produces = {
+            "application/xml"})
+    @ResponseBody
+    public User post(@RequestBody User user) {
+        return user;
+    }
 }
